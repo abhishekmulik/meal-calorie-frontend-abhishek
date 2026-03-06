@@ -35,6 +35,21 @@ export function SignupForm() {
         </p>
       </div>
 
+      <Field className="grid  gap-4 grid-cols-2">
+        <LabeledField
+          label="First name"
+          type="text"
+          registration={register("firstName")}
+          error={errors.firstName}
+        />
+        <LabeledField
+          label="Last name"
+          type="text"
+          registration={register("lastName")}
+          error={errors.lastName}
+        />
+      </Field>
+
       <Field>
         <LabeledField
           label="Email"
@@ -59,7 +74,7 @@ export function SignupForm() {
         />
       </Field>
       <FieldDescription>
-        Password must be at least 4 characters and contain a number.
+        Password must be at least 8 characters and contain a number.
       </FieldDescription>
       <Button type="submit">
         Create Account

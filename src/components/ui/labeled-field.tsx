@@ -9,6 +9,7 @@ type LabeledFieldProps = {
   type?: string
   registration: UseFormRegisterReturn
   error?: { message?: string }
+  isRequired?: boolean
 }
 
 export function LabeledField({
@@ -17,16 +18,21 @@ export function LabeledField({
   type = "text",
   registration,
   error,
+  isRequired = true
 }: LabeledFieldProps) {
   return (
     <div className="space-y-1">
-      <FieldLabel>{label}</FieldLabel>
+      <FieldLabel><span>
+        {label}{isRequired && <span className="text-red-500">*</span>}
+      </span></FieldLabel>
       <Input
         type={type}
+        required={isRequired}
         placeholder={placeholder}
         className={cn(error?.message && 'border-red-500 focus-visible:ring-red-500 focus-visible:ring-1')}
         {...registration}
       />
+
       {(
         <p className="text-sm text-red-500 min-h-[20px]" >
           {error?.message || ''}
