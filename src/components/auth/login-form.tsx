@@ -2,7 +2,6 @@
 
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "@/components/ui/button"
 import {
   Field,
   FieldDescription,
@@ -79,7 +78,7 @@ export function LoginForm() {
       </SpinnerButton>
       <Field>
         <FieldDescription className="px-6 text-center">
-          Don't have an account? <Link href={REGISTER_ROUTE} className="font-medium text-primary hover:underline">Register</Link>
+          Don&apos;t have an account? <Link href={REGISTER_ROUTE} className="font-medium text-primary hover:underline">Register</Link>
         </FieldDescription>
       </Field>
     </FieldGroup>

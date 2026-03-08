@@ -15,6 +15,6 @@ export default function Home() {
     }else{
       router.replace(LOGIN_ROUTE)
     }
-  },[router, hasHydrated])
+  },[router, hasHydrated, userInfo])
   return null
 }

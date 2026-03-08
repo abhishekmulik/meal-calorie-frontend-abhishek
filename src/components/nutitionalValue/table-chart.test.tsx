@@ -1,8 +1,9 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { TableChart } from "./table-chart";
+import { CalorieLookupResponse } from "@/types";
 
-const mockFood = {
+const mockFood: CalorieLookupResponse = {
   servings: 2,
   calories_per_serving: 200,
   total_calories: 400,
@@ -31,7 +32,7 @@ const mockFood = {
 
 describe("TableChart", () => {
   it("renders table headers correctly", () => {
-    render(<TableChart food={mockFood as any} />);
+    render(<TableChart food={mockFood} />);
     expect(screen.getByText(/nutrient/i)).toBeInTheDocument();
     expect(screen.getByText(/per serving/i)).toBeInTheDocument();
     expect(screen.getByText(/total \(2x\)/i)).toBeInTheDocument();
@@ -39,7 +40,7 @@ describe("TableChart", () => {
 
 
   it("renders macronutrients values", () => {
-    render(<TableChart food={mockFood as any} />);
+    render(<TableChart food={mockFood} />);
     const caloriesRow = screen.getByText(/calories/i).closest("tr");
     expect(within(caloriesRow!).getByText("200 kcal")).toBeInTheDocument();
     expect(within(caloriesRow!).getByText("400 kcal")).toBeInTheDocument();
@@ -55,7 +56,7 @@ describe("TableChart", () => {
   });
 
   it("renders optional nutrients when present", () => {
-    render(<TableChart food={mockFood as any} />);
+    render(<TableChart food={mockFood} />);
     expect(screen.getByText(/fiber/i)).toBeInTheDocument();
     expect(screen.getByText(/sugars/i)).toBeInTheDocument();
     expect(screen.getByText(/saturated fat/i)).toBeInTheDocument();
@@ -76,7 +77,7 @@ describe("TableChart", () => {
       },
     };
 
-    render(<TableChart food={foodWithoutOptional as any} />);
+    render(<TableChart food={foodWithoutOptional as CalorieLookupResponse} />);
     expect(screen.queryByText(/fiber/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/sugars/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/saturated fat/i)).not.toBeInTheDocument();

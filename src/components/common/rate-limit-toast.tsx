@@ -15,7 +15,7 @@ function RateLimitToast({ retryAfter, toastId }: { retryAfter: number, toastId: 
             })
         }, 1000)
         return () => clearInterval(timer)
-    }, [])
+    }, [toastId])
     return (
         <div className="flex flex-col gap-1">
             <p className="font-semibold">Too many requests</p>

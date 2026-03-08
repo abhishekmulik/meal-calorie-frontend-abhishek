@@ -1,4 +1,3 @@
-import { LOGIN_ROUTE } from "@/constants";
 import { authStore } from "@/stores/authStore";
 import { ApiError } from "@/types";
 import { toast } from "sonner";

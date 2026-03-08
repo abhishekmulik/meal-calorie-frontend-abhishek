@@ -14,7 +14,7 @@ export default function page() {
         <FadeInAnimation>
             <div className="text-center py-10">
                 <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-3">
-                    What's on your plate?
+                    What&apos;s on your plate?
                 </h1>
                 <p className="text-muted-foreground text-lg max-w-lg mx-auto animate-fade-in">
                     Search any dish to instantly see calories, protein, carbs, and more.
