@@ -4,6 +4,9 @@
 
 A brief description of what this project does and who it's for
 
+## Deployed URL
+[Preview](https://meal-calorie-frontend-abhishek-nu.vercel.app/)
+
 ## Tech Stack
 
 ### Frontend
