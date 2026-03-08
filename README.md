@@ -1,10 +1,9 @@
-
-
 # meal-calorie-frontend-abhishek
 
 A brief description of what this project does and who it's for
 
 ## Deployed URL
+
 [Preview](https://meal-calorie-frontend-abhishek-nu.vercel.app/)
 
 ## Tech Stack
@@ -12,9 +11,7 @@ A brief description of what this project does and who it's for
 ### Frontend
 
 - Next.js 14
-
 - React 18
-
 - TypeScript
 
 ### State Management
@@ -28,17 +25,13 @@ A brief description of what this project does and who it's for
 ### Forms & Validation
 
 - React Hook Form
-
 - Zod
 
 ### UI & Styling
 
 - Tailwind CSS
-
 - ShadeCn
-
 - Lucide Icons
-
 - Recharts (Data visualization)
 
 ### Authentication
@@ -48,40 +41,34 @@ A brief description of what this project does and who it's for
 ### Testing
 
 - Vitest
-
 - React Testing Library
-
 - Jest DOM
 
 ### Developer Tooling
 
 - ESLint
-
 - PostCSS
-
 - TypeScript
 
 ### DevOps & Environment
 
 - Docker
-
 - Environment variables via `.env.local`
 
 ## Screenshots
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.44.04 AM.png)
+![dark: Chart](./screenshots/darkChart.png)
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.44.39 AM.png)
+![darkRecentSearches](./screenshots/darkRecentSearches.png)
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.44.49 AM.png)
+![getCaloriesChart](./screenshots/getCaloriesChart.png)
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.44.58 AM.png)
+![getCaloriesTable](./screenshots/getCaloriesTable.png)
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.45.08 AM.png)
+![login](./screenshots/login.png)
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.55.47 AM.png)
+![recentSearches](./screenshots/recentSearches.png)
 
-![Image](./screenshots/Screenshot%202026-03-08%20at%2011.58.47 AM.png)
+![signup](./screenshots/signup.png)
 
 Note: Learn more about architecutre in Architecture.md
-
