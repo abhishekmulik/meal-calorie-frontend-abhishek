@@ -1,0 +1,22 @@
+export const nutritionFacts = [
+    "Protein helps repair and build muscle tissue after exercise.",
+    "Fiber supports healthy digestion and can help you feel full longer.",
+    "Carbohydrates are the body's main source of energy.",
+    "Healthy fats help your body absorb vitamins like A, D, E, and K.",
+    "Drinking enough water is essential for metabolism and nutrient transport.",
+    "Leafy greens like spinach are rich in iron and vitamins.",
+    "Potassium helps regulate blood pressure and muscle function.",
+    "Eating a variety of colorful fruits and vegetables improves nutrient intake.",
+    "Whole grains contain more fiber and nutrients than refined grains.",
+    "Vitamin C supports the immune system and helps heal wounds.",
+    "Omega-3 fatty acids support heart and brain health.",
+    "Eating protein with meals can help stabilize blood sugar levels.",
+    "Calcium is important for strong bones and teeth.",
+    "Magnesium helps with muscle relaxation and energy production.",
+    "Too much added sugar can increase the risk of metabolic diseases.",
+    "Fermented foods like yogurt and kimchi support gut health.",
+    "Eating slowly can help your body recognize when you're full.",
+    "Dark chocolate contains antioxidants that support heart health.",
+    "Avocados are rich in healthy fats and potassium.",
+    "A balanced diet includes carbohydrates, proteins, fats, vitamins, and minerals."
+];

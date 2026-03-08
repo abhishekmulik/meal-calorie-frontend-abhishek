@@ -3,22 +3,59 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { Button } from "@/components/ui/button"
 import {
   Field,
   FieldDescription,
   FieldGroup,
 } from "@/components/ui/field"
 
-import { LabeledField } from "../ui/labeled-field"
-import { registerSchema, RegisterSchema } from "@/app/(auth)/register/schemas/register-schema"
+import { LabeledField } from "../common/labeled-field"
+import { registerSchema, RegisterSchema } from "@/types/schemas/register-schema"
 import Link from "next/link"
+import { useCreateUser } from "@/hooks/useCreateUser"
+import { authStore } from "@/stores/authStore"
+import { RegisterPayload, AuthResponse, ApiError } from "@/types"
+import { useRouter } from "next/navigation"
+import { DASHBOARD_ROUTE, LOGIN_ROUTE } from "@/constants"
+import { SpinnerButton } from "../common/spinner-button"
+import { handleAPIError } from "@/lib/error-handling"
 
 
 export function SignupForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm<RegisterSchema>({ resolver: zodResolver(registerSchema) })
+  const { register, handleSubmit, formState: { errors }, setError } = useForm<RegisterSchema>({ resolver: zodResolver(registerSchema) })
+  const {mutate: createUser, isPending} = useCreateUser();
+  const router = useRouter();
+
+  const handleSuccess = (res: AuthResponse) =>{
+    authStore.getState().setToken(res.token)
+    router.push(DASHBOARD_ROUTE)
+    console.log(res)
+  }
+
+  const handleError = (err:ApiError) => {
+    const error = handleAPIError(err);
+    if(error){
+      setError("email", {
+        type: "server",
+        message: error.message,
+      })
+    }
+  }
+
   const onSubmit = (data: RegisterSchema) => {
-    console.log(data)
+    const payload: RegisterPayload = {
+      email: data.email,
+      password:data.password,
+      first_name: data.firstName,
+      last_name: data.lastName
+    }
+    createUser(payload, {
+      onSuccess: (res)=>{
+        console.log(res)
+        handleSuccess(res)
+      },
+      onError: (err: ApiError)=>handleError(err)
+    })
   }
 
 
@@ -30,23 +67,23 @@ export function SignupForm() {
     <FieldGroup className="gap-5">
       <div className="flex items-center gap-2 text-center flex-col">
         <h1 className="text-2xl font-bold">Create your account</h1>
-        <p className="text-sm text-muted-foreground">
-          Enter your email below to register to the app
-        </p>
       </div>
 
-      <Field className="grid  gap-4 grid-cols-2">
+      <Field className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <LabeledField
           label="First name"
           type="text"
           registration={register("firstName")}
           error={errors.firstName}
+          inputProps={{ disabled: isPending }}
+          
         />
         <LabeledField
           label="Last name"
           type="text"
           registration={register("lastName")}
           error={errors.lastName}
+          inputProps={{ disabled: isPending }}
         />
       </Field>
 
@@ -54,34 +91,39 @@ export function SignupForm() {
         <LabeledField
           label="Email"
           type="email"
-          placeholder="Enter email"
           registration={register("email")}
           error={errors.email}
+          inputProps={{ disabled: isPending }}
         />
       </Field>
-      <Field className="grid  gap-4 grid-cols-2">
+      <Field className="grid gap-4 grid-cols-1 sm:grid-cols-2">
         <LabeledField
           label="Password"
           type="password"
           registration={register("password")}
           error={errors.password}
+          inputProps={{ disabled: isPending }}
         />
         <LabeledField
           label="Confirm Password"
           type="password"
           registration={register("confirmPassword")}
           error={errors.confirmPassword}
+          inputProps={{ disabled: isPending }}
         />
       </Field>
       <FieldDescription>
-        Password must be at least 8 characters and contain a number.
+        Password must be at least 8 characters long.
       </FieldDescription>
-      <Button type="submit">
+      <SpinnerButton type="submit" 
+        disabled={isPending}
+        isLoading={isPending}
+        loadingText="Creating account...">
         Create Account
-      </Button>
+      </SpinnerButton>
       <Field>
       <FieldDescription className="px-6 text-center">
-            Already have an account? <Link href="/login" className="font-medium text-primary hover:underline">Sign in</Link>
+            Already have an account? <Link href={LOGIN_ROUTE} className="font-medium text-primary hover:underline">Sign in</Link>
           </FieldDescription>
       </Field>
     </FieldGroup>
