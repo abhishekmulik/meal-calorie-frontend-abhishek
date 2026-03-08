@@ -55,6 +55,59 @@ A brief description of what this project does and who it's for
 - Docker
 - Environment variables via `.env.local`
 
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root directory.
+
+You can copy the example file:
+
+```
+cp .env.example .env.local
+````
+
+---
+
+### 4. Run the Development Server
+
+```bash
+npm run dev
+```
+
+The application will start at:
+
+```
+http://localhost:3000
+```
+---
+
+### Running with Docker
+
+Build and run the container:
+
+```
+docker compose up --build
+```
+
+---
+
+### Running Tests
+
+Run unit tests using:
+
+```
+npm run test
+```
+
+---
+
+## Architecture
+
+Learn more about the system architecture in:
+
+```
+ARCHITECTURE.md
+```
+---
 ## Screenshots
 
 ![dark: Chart](./screenshots/darkChart.png)
@@ -71,4 +124,3 @@ A brief description of what this project does and who it's for
 
 ![signup](./screenshots/signup.png)
 
-Note: Learn more about architecutre in Architecture.md
