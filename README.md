@@ -55,6 +55,23 @@ A brief description of what this project does and who it's for
 - Docker
 - Environment variables via `.env.local`
 
+---
+
+# Project setup
+
+### 1. Clone repo
+
+```
+git clone https://github.com/abhishekmulik/meal-calorie-frontend-abhishek
+cd meal-calorie-frontend-abhishek
+```
+
+### 2. Install Deps
+
+```
+npm install
+```
+
 ### 3. Configure Environment Variables
 
 Create a `.env.local` file in the root directory.
@@ -65,11 +82,9 @@ You can copy the example file:
 cp .env.example .env.local
 ````
 
----
-
 ### 4. Run the Development Server
 
-```bash
+```
 npm run dev
 ```
 
